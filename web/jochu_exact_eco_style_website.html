@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>州巧科技 JOCHU Technology | 智慧製造 ‧ 永續未來</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sky-blue-top: #1D85E6;
+            --sky-blue-mid: #257CE1;
+            --lime-green: #4ADE80;
+            --lime-green-bright: #38D399;
+            --electric-green-bg: #22C55E;
+            --outer-navy: #1E2548;
+            --pure-white: #FFFFFF;
+            --off-white: #F9FAFB;
+            --text-navy: #1E293B;
+            --text-gray: #64748B;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--outer-navy);
+            color: var(--text-navy);
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Outer Container Card Frame */
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--off-white);
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Top Header Navigation */
+        header {
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--pure-white);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            padding-left: 12px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--lime-green);
+        }
+
+        .header-phone {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        /* Hero Section (Matches Sky Blue Hero Banner) */
+        .hero {
+            position: relative;
+            background: linear-gradient(180deg, #1877DB 0%, #257CE1 60%, #3B82F6 100%);
+            color: var(--pure-white);
+            padding: 130px 60px 0 60px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            overflow: hidden;
+        }
+
+        .hero-text-content {
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto 36px auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .handwritten {
+            font-style: italic;
+            font-weight: 400;
+            color: #E0F2FE;
+            text-decoration: underline;
+            text-decoration-color: var(--lime-green);
+            text-underline-offset: 6px;
+        }
+
+        .hero-btn-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+            color: var(--pure-white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+            transition: var(--transition);
+        }
+
+        .hero-btn-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(34, 197, 94, 0.5);
+        }
+
+        .hero-btn-icon {
+            width: 22px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Dome/Facility Image Wrapper */
+        .hero-image-wrapper {
+            position: relative;
+            max-width: 960px;
+            margin: 0 auto;
+            border-top-left-radius: 300px;
+            border-top-right-radius: 300px;
+            overflow: hidden;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-caption {
+            position: absolute;
+            bottom: 24px;
+            left: 36px;
+            max-width: 320px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Section 1: Services List Section */
+        .services-section {
+            padding: 80px 60px;
+            position: relative;
+            background: var(--off-white);
+        }
+
+        .section-header-flex {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .section-small-tag {
+            font-size: 11px;
+            font-weight: 800;
+            color: #2563EB;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-large-title {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1E293B;
+            line-height: 1.2;
+        }
+
+        .section-subtext {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 12px;
+            max-width: 600px;
+        }
+
+        /* Accordion List Layout */
+        .accordion-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .accordion-pill-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+            color: var(--pure-white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.25);
+            transition: var(--transition);
+        }
+
+        .accordion-pill-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(34, 197, 94, 0.4);
+        }
+
+        .accordion-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .accordion-row {
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .accordion-row-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E293B;
+        }
+
+        .accordion-icon {
+            font-size: 18px;
+            color: #64748B;
+            font-weight: 300;
+            transition: var(--transition);
+        }
+
+        .accordion-row.open .accordion-icon {
+            transform: rotate(45deg);
+            color: #22C55E;
+        }
+
+        .accordion-content-detail {
+            padding-top: 16px;
+            padding-bottom: 8px;
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .accordion-content-detail ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .accordion-content-detail li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+        }
+
+        .accordion-content-detail li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #22C55E;
+            font-weight: bold;
+        }
+
+        /* Section 2: Radiant Lime-Green Gradient Banner */
+        .gradient-banner-section {
+            background: linear-gradient(180deg, #A3E635 0%, #4ADE80 50%, #22C55E 100%);
+            padding: 100px 60px;
+            text-align: center;
+            color: var(--pure-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-banner-title {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.3;
+            max-width: 900px;
+            margin: 0 auto;
+            letter-spacing: -0.5px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-banner-title .script-style {
+            font-style: italic;
+            font-weight: 400;
+            color: #FFFFFF;
+            text-decoration: underline;
+            text-decoration-color: var(--pure-white);
+            text-underline-offset: 6px;
+        }
+
+        /* Section 3: Bottom Tech Detail Card */
+        .tech-card-section {
+            padding: 80px 60px;
+            background: var(--off-white);
+        }
+
+        .tech-card-wrapper {
+            background: var(--pure-white);
+            border-radius: 28px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 50px;
+            align-items: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-light);
+        }
+
+        .tech-card-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tech-card-tag {
+            font-size: 11px;
+            font-weight: 800;
+            color: #2563EB;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .tech-card-title {
+            font-size: 34px;
+            font-weight: 800;
+            color: #1E293B;
+            line-height: 1.25;
+            margin-bottom: 24px;
+        }
+
+        .tech-stats-grid {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .tech-stat-item .stat-val {
+            font-size: 26px;
+            font-weight: 800;
+            color: #22C55E;
+        }
+
+        .tech-stat-item .stat-lbl {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-top: 2px;
+        }
+
+        .tech-card-desc {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .tech-card-img {
+            width: 100%;
+            height: 380px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Footer */
+        footer {
+            background: #1E293B;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--pure-white);
+            margin-bottom: 12px;
+        }
+
+        .footer-contact-info {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-link-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-link-group a:hover {
+            color: var(--lime-green);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header, .hero, .services-section, .gradient-banner-section, .tech-card-section, footer { padding: 40px 30px; }
+            .hero-title { font-size: 34px; }
+            .section-header-flex, .accordion-layout, .tech-card-wrapper, .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .gradient-banner-title { font-size: 30px; }
+            .hero-image-wrapper { border-top-left-radius: 100px; border-top-right-radius: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Outer Page Frame Wrapper -->
+    <div class="page-wrapper">
+
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                JOCHU
+                <span class="logo-tag">州巧科技</span>
+            </div>
+            <nav>
+                <a href="#about">關於州巧</a>
+                <a href="#services">產品服務</a>
+                <a href="#technology">核心技術</a>
+                <a href="#esg">永續發展</a>
+                <a href="#investors">投資人專區</a>
+            </nav>
+            <div class="header-phone">
+                📞 +886-3-598-5177
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-text-content">
+                <h1 class="hero-title">
+                    精工淬鍊 ‧ 智能引領<br>
+                    打造每年效益高達 <span class="handwritten">全球級精密供應鏈</span>
+                </h1>
+                <a href="#services" class="hero-btn-pill">
+                    了解核心解決方案
+                    <span class="hero-btn-icon">→</span>
+                </a>
+            </div>
+
+            <!-- Dome Facility Image Wrapper -->
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80" alt="Jochu High Tech Plant">
+                <div class="hero-caption">
+                    導入自動化連續模與大噸位沖壓設備，深耕 TFT-LCD 光電機構件與新能源關鍵零組件。
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Services List -->
+        <section class="services-section" id="services">
+            <div class="section-header-flex">
+                <div class="section-small-tag">OUR SERVICES</div>
+                <div>
+                    <h2 class="section-large-title">我們提供全方位精密製造與產業轉型服務</h2>
+                    <p class="section-subtext">主要核心任務 — 以極致模具研發與自動化生產，為客戶實現高精度、低能耗與高效率的零組件解決方案。</p>
+                </div>
+            </div>
+
+            <div class="accordion-layout">
+                <div>
+                    <a href="#contact" class="accordion-pill-btn">
+                        查看全部業務
+                        <span class="hero-btn-icon">→</span>
+                    </a>
+                </div>
+
+                <div class="accordion-list">
+                    <div class="accordion-row open">
+                        <div class="accordion-row-header">
+                            <span>01. 分類與光電 / 資通訊機構件 (Optoelectronics & IT)</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content-detail">
+                            <p>專注於 TFT-LCD 面板金屬件與關鍵機構組件，憑藉卓越精密度與全球市佔率，成為國際顯示器大廠首選合作夥伴。</p>
+                            <ul>
+                                <li>高精度金屬沖壓與連續模開發</li>
+                                <li>自動化機械手臂無人化組裝產線</li>
+                                <li>汽車級與國際電子大廠嚴格驗證</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-row">
+                        <div class="accordion-row-header">
+                            <span>02. 高值化家居製品 (High-Value Furniture)</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                    </div>
+
+                    <div class="accordion-row">
+                        <div class="accordion-row-header">
+                            <span>03. 醫療與樂齡福祉 (Healthcare & Smart Mobility)</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                    </div>
+
+                    <div class="accordion-row">
+                        <div class="accordion-row-header">
+                            <span>04. 氫能燃料電池金屬雙極板 (Green Energy Solutions)</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                    </div>
+
+                    <div class="accordion-row">
+                        <div class="accordion-row-header">
+                            <span>05. 自動化設備與連續模研發 (Mold Design & CAE)</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Lime Green Banner -->
+        <section class="gradient-banner-section" id="esg">
+            <h2 class="gradient-banner-title">
+                運用全方位綜合領域優勢<br>
+                導入現代化技術 <span class="script-style">永續低碳製造</span> 與淨零轉型
+            </h2>
+        </section>
+
+        <!-- Section 3: Bottom Tech Detail Card -->
+        <section class="tech-card-section" id="technology">
+            <div class="tech-card-wrapper">
+                <div class="tech-card-left">
+                    <div>
+                        <div class="tech-card-tag">TECHNOLOGY | MOLD & STAMPING</div>
+                        <h2 class="tech-card-title">大噸位自動化沖壓與連續模研發</h2>
+                    </div>
+
+                    <div class="tech-stats-grid">
+                        <div class="tech-stat-item">
+                            <div class="stat-val">500+</div>
+                            <div class="stat-lbl">全球合作專案</div>
+                        </div>
+                        <div class="tech-stat-item">
+                            <div class="stat-val">20+</div>
+                            <div class="stat-lbl">關鍵專利佈局</div>
+                        </div>
+                    </div>
+
+                    <p class="tech-card-desc">
+                        具備連續模（Progressive Die）與單動模設計能力，結合 CAE 模擬分析，顯著縮短開發週期並確保極限精度。全廠通過 ISO 9001、ISO 14001 與 IATF 16949 國際驗證。
+                    </p>
+
+                    <div>
+                        <a href="#services" class="hero-btn-pill">
+                            了解詳細技術
+                            <span class="hero-btn-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <img class="tech-card-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Jochu Plant Facility">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-title">JOCHU 州巧科技</div>
+                    <div class="footer-contact-info">
+                        📍 總公司：新竹縣湖口鄉新竹工業區光復路20號<br>
+                        📞 電話：+886-3-598-5177<br>
+                        ✉️ 信箱：ir@jochu.com
+                    </div>
+                </div>
+
+                <div class="footer-link-group">
+                    <div class="footer-title" style="font-size: 14px;">全球據點</div>
+                    <a href="#">新竹總部 (Taiwan)</a>
+                    <a href="#">蘇州廠 (Suzhou)</a>
+                    <a href="#">廈門廠 (Xiamen)</a>
+                    <a href="#">越南廠 (Vietnam)</a>
+                </div>
+
+                <div class="footer-link-group">
+                    <div class="footer-title" style="font-size: 14px;">快速導覽</div>
+                    <a href="#about">關於州巧</a>
+                    <a href="#services">產品服務</a>
+                    <a href="#technology">核心技術</a>
+                    <a href="#esg">永續發展 (ESG)</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                Copyright © Jochu Technology Co., Ltd. All Rights Reserved. 州巧科技 版權所有
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>州巧科技 JOCHU Technology | 精密製造 ‧ 永續未來</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sky-blue: #2374E1;
+            --electric-lime: #80E326;
+            --dark-navy: #0A1E3F;
+            --pure-white: #FFFFFF;
+            --light-bg: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --border-light: #E2E8F0;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- Header Navigation --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--pure-white);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo span {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            padding-left: 12px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--electric-lime);
+        }
+
+        .header-btn {
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px 22px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: var(--pure-white);
+            border-radius: 4px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-btn:hover {
+            background: var(--electric-lime);
+            color: var(--text-dark);
+            border-color: var(--electric-lime);
+        }
+
+        /* --- Hero Section (Tennis Style Bold Giant Typography) --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #1B68D1 0%, #2982F2 100%);
+            color: var(--pure-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-between;
+            overflow: hidden;
+            padding: 140px 60px 60px 60px;
+        }
+
+        /* Sky cloud texture effect */
+        .hero-bg-sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.25) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-title-wrapper {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .giant-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 130px;
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 20px 50px rgba(10, 30, 63, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .giant-title span {
+            color: var(--electric-lime);
+        }
+
+        .hero-action-card {
+            position: absolute;
+            left: 60px;
+            bottom: 60px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 24px 32px;
+            border-radius: 8px;
+            max-width: 320px;
+        }
+
+        .hero-action-card .since {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .hero-action-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .slider-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .slider-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-btn:hover {
+            background: var(--pure-white);
+            color: var(--sky-blue);
+        }
+
+        /* Dynamic subject image center */
+        .hero-subject-img {
+            position: absolute;
+            bottom: 0;
+            right: 10%;
+            height: 85%;
+            z-index: 5;
+            object-fit: contain;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.25));
+        }
+
+        /* --- Section A: Editorial Intro --- */
+        .editorial-section {
+            padding: 100px 80px;
+            background: var(--pure-white);
+        }
+
+        .section-tag-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid var(--text-dark);
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        .editorial-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+        }
+
+        .editorial-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .btn-black-lime {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-dark);
+            color: var(--pure-white);
+            padding: 14px 28px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .btn-black-lime span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--electric-lime);
+        }
+
+        .btn-black-lime:hover {
+            background: var(--sky-blue);
+        }
+
+        /* --- Asymmetric Image Grid & High Stats --- */
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .big-img-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 540px;
+        }
+
+        .big-img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .big-img-overlay {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .stat-box-dark {
+            background: rgba(10, 30, 63, 0.85);
+            backdrop-filter: blur(16px);
+            color: var(--pure-white);
+            padding: 20px 28px;
+            border-radius: 6px;
+            flex: 1;
+        }
+
+        .stat-box-dark .number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--electric-lime);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-box-dark .label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .arrow-box-blue {
+            width: 60px;
+            background: var(--sky-blue);
+            color: var(--pure-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .arrow-box-blue:hover {
+            background: var(--electric-lime);
+            color: var(--text-dark);
+        }
+
+        .right-column-layout {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .small-img-card {
+            height: 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .small-img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .highlight-stat-flex {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 20px 0;
+        }
+
+        .giant-num-lime {
+            font-family: 'Oswald', sans-serif;
+            font-size: 96px;
+            font-weight: 700;
+            line-height: 0.8;
+            color: var(--electric-lime);
+        }
+
+        .stat-desc-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .stat-list {
+            list-style: none;
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .stat-list li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .stat-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--sky-blue);
+            font-weight: bold;
+        }
+
+        /* --- Section B: Core Business / Product Showcase --- */
+        .products-section {
+            padding: 100px 80px;
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .product-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .p-card {
+            background: var(--pure-white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .p-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border-color: var(--sky-blue);
+        }
+
+        .p-card-img {
+            height: 260px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .p-card-body {
+            padding: 24px;
+        }
+
+        .p-card-category {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .p-card-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .p-card-desc {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* --- Capabilities Section --- */
+        .capabilities-section {
+            padding: 100px 80px;
+            background: var(--pure-white);
+        }
+
+        .cap-banner {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, #003366 100%);
+            border-radius: 12px;
+            padding: 60px;
+            color: var(--pure-white);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .cap-left h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 38px;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .cap-left p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .cap-items-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .cap-item-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .cap-item-box h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--electric-lime);
+            margin-bottom: 8px;
+        }
+
+        .cap-item-box p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        /* --- News & ESG Section --- */
+        .news-esg-section {
+            padding: 100px 80px;
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+        }
+
+        .news-list-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .news-date-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--sky-blue);
+            margin-bottom: 6px;
+        }
+
+        .news-item-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .news-item-desc {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .esg-lime-box {
+            background: var(--electric-lime);
+            border-radius: 12px;
+            padding: 50px;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .esg-lime-box h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .esg-lime-box p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .btn-dark-pill {
+            display: inline-block;
+            background: var(--text-dark);
+            color: var(--pure-white);
+            padding: 14px 28px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+
+        .btn-dark-pill:hover {
+            background: var(--sky-blue);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark-navy);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 80px 40px 80px;
+            font-size: 13px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--pure-white);
+            margin-bottom: 16px;
+        }
+
+        .footer-title {
+            color: var(--pure-white);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--electric-lime);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            header { padding: 20px 30px; }
+            .hero { padding: 120px 30px 40px 30px; }
+            .giant-title { font-size: 72px; }
+            .editorial-section, .products-section, .capabilities-section, .news-esg-section, footer { padding: 60px 30px; }
+            .editorial-grid, .asymmetric-grid, .product-cards-grid, .cap-banner, .news-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero-subject-img { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            JOCHU
+            <span>州巧科技</span>
+        </div>
+        <nav>
+            <a href="#about">關於州巧</a>
+            <a href="#technology">核心技術</a>
+            <a href="#products">產品服務</a>
+            <a href="#esg">永續發展</a>
+            <a href="#investors">投資人專區</a>
+            <a href="#careers">人力資源</a>
+        </nav>
+        <a href="#contact" class="header-btn">
+            聯絡我們 ↗
+        </a>
+    </header>
+
+    <!-- Hero Section (Ace Tennis Dynamic Style) -->
+    <section class="hero">
+        <div class="hero-bg-sky"></div>
+        
+        <div class="hero-title-wrapper">
+            <h1 class="giant-title">PRECISION <span>STRONG.</span></h1>
+        </div>
+
+        <!-- Floating Glass Box (Matches bottom left box in tennis sample) -->
+        <div class="hero-action-card">
+            <div class="since">— Since 2000</div>
+            <h4>精工淬鍊 ‧ 智能引領<br>打造全球金屬機構組件典範</h4>
+            <div class="slider-controls">
+                <div class="slider-btn">←</div>
+                <div class="slider-btn">→</div>
+            </div>
+        </div>
+
+        <!-- High-contrast Subject Image (Dynamic Worker with Metal Sheet / Precision Part) -->
+        <img class="hero-subject-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Jochu Precision Engineering">
+    </section>
+
+    <!-- Section A: Editorial Section -->
+    <section class="editorial-section" id="about">
+        <div class="section-tag-mark">A</div>
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 20px;">About Jochu</div>
+
+        <div class="editorial-grid">
+            <h2 class="editorial-heading">BUILDING PRECISION EXCELLENCE ON AND OFF THE FIELD</h2>
+            <div>
+                <div class="editorial-body">
+                    <div>
+                        州巧科技專注於高精密金屬沖壓與連續模具研發，為全球 TFT-LCD 光電機構件主要供應商。我們結合自動化生產技術，實現極致品質與產能穩定度。
+                    </div>
+                    <div>
+                        積極跨足綠能新能源與高齡化樂齡輔具市場，將精密金屬工藝延伸至氫能雙極板、高質感傢俱與智慧電動輪椅，締造多元轉型新價值。
+                    </div>
+                </div>
+                <a href="#technology" class="btn-black-lime">
+                    探索我們的核心技術 <span></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Asymmetric Layout (Identical to Tennis Photo Grid & High Stats) -->
+        <div class="asymmetric-grid">
+            <!-- Big Image Left with Dark Floating Stats Overlay -->
+            <div class="big-img-card">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Precision Metal Stamping">
+                <div class="big-img-overlay">
+                    <div class="stat-box-dark">
+                        <div class="number">500+</div>
+                        <div class="label">全球合作專案 (Active Projects)</div>
+                    </div>
+                    <div class="stat-box-dark">
+                        <div class="number">20+</div>
+                        <div class="label">關鍵專利佈局 (Patent Filings)</div>
+                    </div>
+                    <div class="arrow-box-blue">↗</div>
+                </div>
+            </div>
+
+            <!-- Small Image Right + Giant Green 15 Years Stat -->
+            <div class="right-column-layout">
+                <div class="small-img-card">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Automated Manufacturing">
+                </div>
+                
+                <div class="highlight-stat-flex">
+                    <div class="giant-num-lime">25</div>
+                    <div>
+                        <div class="stat-desc-title">Years of Manufacturing Excellence</div>
+                        <ul class="stat-list">
+                            <li>大噸位連續模與單動模設計能力</li>
+                            <li>IATF 16949 / ISO 9001 汽車級品質驗證</li>
+                            <li>跨國全球產能佈局（台灣、中國、越南）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section B: Three Core Business Units (Training Program Cards Layout) -->
+    <section class="products-section" id="products">
+        <div class="section-tag-mark">B</div>
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 12px;">Core Business Line</div>
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 38px; text-transform: uppercase;">三大核心業務版塊</h2>
+
+        <div class="product-cards-grid">
+            <!-- Card 1 -->
+            <div class="p-card">
+                <img class="p-card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Optoelectronics">
+                <div class="p-card-body">
+                    <div class="p-card-category">01 / 光電與資通訊</div>
+                    <h3 class="p-card-title">TFT-LCD 機構組件</h3>
+                    <p class="p-card-desc">高精密顯示器金屬邊框與機構件，具備極高市佔率與自動化沖壓組裝產線。</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="p-card">
+                <img class="p-card-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Furniture">
+                <div class="p-card-body">
+                    <div class="p-card-category">02 / 奢華精品家居</div>
+                    <h3 class="p-card-title">高值化金屬傢俱</h3>
+                    <p class="p-card-desc">結合金屬工藝美學與結構強度，與國際頂尖家居品牌合作量產高品質生活用品。</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="p-card">
+                <img class="p-card-img" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Healthcare">
+                <div class="p-card-body">
+                    <div class="p-card-category">03 / 樂齡醫療福祉</div>
+                    <h3 class="p-card-title">智慧電動輪椅與輔具</h3>
+                    <p class="p-card-desc">專注高齡化銀髮照護需求，研發輕量化高強度電動輪椅與微創復健設備。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities-section" id="technology">
+        <div class="cap-banner">
+            <div class="cap-left">
+                <h3>ADVANCED CAPABILITIES</h3>
+                <p>以模具研發力、大噸位沖壓設備與嚴格品質認證，建構不可替代的核心競爭優勢。</p>
+            </div>
+            <div class="cap-items-grid">
+                <div class="cap-item-box">
+                    <h4>⚙️ 模具研發力</h4>
+                    <p>連續模與單動模設計，結合 CAE 模擬分析顯著縮短開發時間。</p>
+                </div>
+                <div class="cap-item-box">
+                    <h4>🏭 自動化生產</h4>
+                    <p>大噸位精密沖壓設備與多軸機械手臂無人生產線。</p>
+                </div>
+                <div class="cap-item-box">
+                    <h4>🛡️ 全球認證</h4>
+                    <p>通過 ISO 9001、ISO 14001 與 IATF 16949 嚴格審查。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & ESG Section -->
+    <section class="news-esg-section" id="esg">
+        <div class="news-grid">
+            <div>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 32px; text-transform: uppercase; margin-bottom: 24px;">LATEST NEWS & ANNOUNCEMENTS</h3>
+                
+                <div class="news-list-item">
+                    <div>
+                        <div class="news-date-tag">2026.07.15 | 參展動態</div>
+                        <div class="news-item-title">州巧科技即將亮相「台北國際照顧博覽會」</div>
+                        <div class="news-item-desc">展示最新一代輕量化智能電動輪椅與樂齡照護設備。</div>
+                    </div>
+                    <div style="font-size: 20px;">↗</div>
+                </div>
+
+                <div class="news-list-item">
+                    <div>
+                        <div class="news-date-tag">2026.06.02 | 綠能轉型</div>
+                        <div class="news-title">突破氫能燃料電池金屬雙極板量產技術</div>
+                        <div class="news-item-desc">實現超薄金屬雙極板精密成型與表面處理工藝。</div>
+                    </div>
+                    <div style="font-size: 20px;">↗</div>
+                </div>
+            </div>
+
+            <!-- Lime Green Box (Matches Tennis Highlight Color) -->
+            <div class="esg-lime-box">
+                <div>
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">SUSTAINABILITY</div>
+                    <h3>COMMITMENT TO GREEN MANUFACTURING</h3>
+                    <p>州巧科技承諾落實 ESG 治理，致力於低碳生產製程與在地共好，攜手夥伴打造永續供應鏈。</p>
+                </div>
+                <div>
+                    <a href="#" class="btn-dark-pill">下載最新永續報告書 (ESG Report)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">JOCHU</div>
+                <p style="margin-bottom: 12px; color: #FFFFFF; font-weight: 600;">州巧科技股份有限公司 Jochu Technology Co., Ltd.</p>
+                <p>📍 總公司：新竹縣湖口鄉新竹工業區光復路20號</p>
+                <p>📞 電話：+886-3-598-5177</p>
+                <p>✉️ 信箱：ir@jochu.com</p>
+            </div>
+
+            <div>
+                <div class="footer-title">全球據點</div>
+                <ul class="footer-links">
+                    <li><a href="#">新竹總部 (Taiwan)</a></li>
+                    <li><a href="#">蘇州廠 (Suzhou)</a></li>
+                    <li><a href="#">廈門廠 (Xiamen)</a></li>
+                    <li><a href="#">越南廠 (Vietnam)</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-title">網站導覽</div>
+                <ul class="footer-links">
+                    <li><a href="#about">關於州巧</a></li>
+                    <li><a href="#technology">核心技術</a></li>
+                    <li><a href="#products">產品服務</a></li>
+                    <li><a href="#esg">永續發展 (ESG)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            Copyright © Jochu Technology Co., Ltd. All Rights Reserved. 州巧科技 版權所有
+        </div>
+    </footer>
+
+</body>
+</html>

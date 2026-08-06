@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>州巧科技 JOCHU Technology | 精密製造 ‧ 永續未來</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-blue: #005A9C;
+            --light-blue-bg: #4A90E2;
+            --soft-blue-card: #EBF4FA;
+            --accent-orange: #F39800;
+            --pure-white: #FFFFFF;
+            --bg-canvas: #F8FAFC;
+            --text-dark: #0A192F;
+            --text-secondary: #475569;
+            --text-blue: #005A9C;
+            --border-light: #E2E8F0;
+            --radius-round: 50%;
+            --radius-card: 16px;
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- Header Navigation --- */
+        header {
+            background: var(--pure-white);
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--brand-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-left: 1px solid var(--border-light);
+            padding-left: 10px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--brand-blue);
+        }
+
+        .nav-btn-orange {
+            background: var(--brand-blue);
+            color: var(--pure-white);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-btn-orange:hover {
+            background: var(--accent-orange);
+            color: var(--pure-white);
+        }
+
+        .orange-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+        }
+
+        /* --- Hero Section (Matches JH Blue Hero Banner) --- */
+        .hero {
+            padding: 40px 60px 0 60px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #4285F4 0%, #2A65C7 100%);
+            border-radius: 24px;
+            padding: 60px 60px 40px 60px;
+            color: var(--pure-white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 90, 156, 0.15);
+        }
+
+        .hero-banner-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .hero-banner-title h1 {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero-banner-title h1 .right-align {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        /* Circular Floating Images Layout (Strictly Matching JH) */
+        .hero-bubbles-container {
+            position: relative;
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .bubble-main {
+            width: 320px;
+            height: 320px;
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            border: 6px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            z-index: 3;
+            position: relative;
+        }
+
+        .bubble-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bubble-sub-1 {
+            width: 120px;
+            height: 120px;
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            border: 4px solid var(--pure-white);
+            position: absolute;
+            left: 12%;
+            top: 20%;
+            z-index: 2;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .bubble-sub-2 {
+            width: 90px;
+            height: 90px;
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            border: 3px solid var(--pure-white);
+            position: absolute;
+            left: 22%;
+            bottom: 15%;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .bubble-sub-3 {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            border: 3px solid var(--pure-white);
+            position: absolute;
+            right: 15%;
+            top: 15%;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .bubble-sub-1 img, .bubble-sub-2 img, .bubble-sub-3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-banner-footer {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- Section 1: Intro & Stat Cards --- */
+        .section-padding {
+            padding: 80px 60px;
+        }
+
+        .intro-container {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+        }
+
+        .section-tag {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .intro-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--brand-blue);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .intro-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: var(--soft-blue-card);
+            border-radius: var(--radius-card);
+            padding: 32px 24px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: var(--pure-white);
+            border-color: var(--brand-blue);
+            box-shadow: 0 12px 30px rgba(0, 90, 156, 0.08);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--brand-blue);
+            line-height: 1;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat-number .plus {
+            color: var(--accent-orange);
+            font-size: 28px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* --- Section 2: Large Video/Image Banner --- */
+        .video-banner-container {
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .video-banner-container img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .play-button-overlay:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--accent-orange);
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 16px solid var(--brand-blue);
+            margin-left: 4px;
+        }
+
+        .play-button-overlay:hover .play-icon {
+            border-left-color: var(--pure-white);
+        }
+
+        /* --- Section 3: Accordion / Services List Section --- */
+        .services-section {
+            background: var(--pure-white);
+            padding: 80px 60px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .services-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--brand-blue);
+        }
+
+        .accordion-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-canvas);
+            transition: var(--transition);
+        }
+
+        .accordion-item.active {
+            background: var(--soft-blue-card);
+            border-color: var(--brand-blue);
+        }
+
+        .accordion-header {
+            padding: 20px 28px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--brand-blue);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .accordion-arrow {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(0, 90, 156, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--brand-blue);
+            transition: var(--transition);
+        }
+
+        .accordion-item.active .accordion-arrow {
+            background: var(--brand-blue);
+            color: var(--pure-white);
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            padding: 0 28px 28px 28px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .accordion-text p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .accordion-imgs {
+            display: flex;
+            gap: 16px;
+        }
+
+        .accordion-img-card {
+            flex: 1;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Section 4: Capabilities Cards (Team Cards Style) --- */
+        .capabilities-section {
+            padding: 80px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .cap-card {
+            background: var(--pure-white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .cap-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--brand-blue);
+            box-shadow: 0 12px 30px rgba(0, 90, 156, 0.08);
+        }
+
+        .cap-circle-img {
+            width: 140px;
+            height: 140px;
+            border-radius: var(--radius-round);
+            margin: 0 auto 20px auto;
+            overflow: hidden;
+            border: 4px solid var(--soft-blue-card);
+        }
+
+        .cap-circle-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cap-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--brand-blue);
+            margin-bottom: 8px;
+        }
+
+        .cap-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .cap-badges {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .cap-badge {
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--soft-blue-card);
+            color: var(--brand-blue);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--brand-blue);
+            color: var(--pure-white);
+            padding: 60px;
+            margin-top: 60px;
+            font-size: 13px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .footer-left p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-right {
+            text-align: right;
+            opacity: 0.8;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            header, .hero, .section-padding, .services-section, .capabilities-section, footer { padding: 30px 20px; }
+            .hero-banner { padding: 40px 24px; }
+            .hero-banner-title h1 { font-size: 36px; }
+            .stats-grid, .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
+            .accordion-body { grid-template-columns: 1fr; }
+            .bubble-main { width: 220px; height: 220px; }
+            .bubble-sub-1, .bubble-sub-2, .bubble-sub-3 { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            JOCHU
+            <span class="logo-tag">州巧科技</span>
+        </div>
+        <nav>
+            <a href="#about">關於州巧</a>
+            <a href="#technology">核心技術</a>
+            <a href="#products">產品服務</a>
+            <a href="#esg">永續發展</a>
+            <a href="#investors">投資人專區</a>
+            <a href="#careers">人力資源</a>
+        </nav>
+        <a href="#contact" class="nav-btn-orange">
+            <span class="orange-dot"></span> 聯絡我們
+        </a>
+    </header>
+
+    <!-- Hero Section (Johns Hopkins Medicine Style Layout) -->
+    <section class="hero">
+        <div class="hero-banner">
+            <div class="hero-banner-title">
+                <h1>
+                    Jochu Technology
+                    <span class="right-align">Precision & Future</span>
+                </h1>
+            </div>
+
+            <!-- Floating Bubbles Layer -->
+            <div class="hero-bubbles-container">
+                <div class="bubble-sub-1">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80" alt="Precision Metal Work">
+                </div>
+                <div class="bubble-sub-2">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="Automation Line">
+                </div>
+                
+                <!-- Main Center Circular Image -->
+                <div class="bubble-main">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Jochu Manufacturing Leader">
+                </div>
+
+                <div class="bubble-sub-3">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80" alt="Healthcare Product">
+                </div>
+            </div>
+
+            <div class="hero-banner-footer">
+                <span class="orange-dot"></span> SINCE 2000 — DRIVING GLOBAL MANUFACTURING EXCELLENCE
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Introduction & 4 Stat Cards -->
+    <section class="section-padding" id="about">
+        <div class="intro-container">
+            <span class="section-tag">[ ABOUT JOCHU ]</span>
+            <h2 class="intro-title">精工淬鍊 ‧ 智能引領<br>塑造全球金屬機構組件新典範</h2>
+            <p class="intro-desc">
+                州巧科技以高精密沖壓與連續模具研發為核心，為全球 TFT-LCD 光電機構件關鍵供應商。我們結合自動化生產線與新能源技術，成功跨足氫能雙極板、精品金屬傢俱與智慧醫療樂齡輔具領域。
+            </p>
+        </div>
+
+        <!-- 4 Light Blue Stat Cards (Matches JH 2.8M, 50, 164K, 930K Cards) -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">500<span class="plus">+</span></div>
+                <div class="stat-label">全球合作專案<br>(Active Global Projects)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25<span class="plus">+</span></div>
+                <div class="stat-label">深耕製造年資<br>(Years of Excellence)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">20<span class="plus">+</span></div>
+                <div class="stat-label">關鍵專利佈局<br>(Patent Filings)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4<span class="plus">大</span></div>
+                <div class="stat-label">全球生產據點<br>(Taiwan, Suzhou, Xiamen, Vietnam)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Large Banner with Play Icon (Matches JH Surgery Video Banner) -->
+    <div class="video-banner-container">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80" alt="Jochu High Tech Production Line">
+        <div class="play-button-overlay">
+            <div class="play-icon"></div>
+        </div>
+    </div>
+
+    <!-- Section 3: Accordion Services List (Matches JH Medical Services Section) -->
+    <section class="services-section" id="products">
+        <div class="services-header">
+            <span class="section-tag">[ PRODUCTS & SERVICES ]</span>
+            <h2>三大核心業務版塊</h2>
+        </div>
+
+        <div class="accordion-container">
+            <!-- Item 1 (Active) -->
+            <div class="accordion-item active">
+                <div class="accordion-header">
+                    <span>光電 / 資通訊機構件 (Optoelectronics & IT)</span>
+                    <div class="accordion-arrow">↓</div>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-text">
+                        <p>專注於 TFT-LCD 面板金屬件與關鍵機構組件，憑藉卓越精密度與全球高市佔率，成為國際顯示器大廠首選合作夥伴。</p>
+                        <span class="orange-dot"></span> 支援自動化無人生產與超精密金屬沖壓工藝
+                    </div>
+                    <div class="accordion-imgs">
+                        <div class="accordion-img-card">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="TFT LCD Component">
+                        </div>
+                        <div class="accordion-img-card">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Metal Stamping">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>高值化家居製品 (High-Value Furniture)</span>
+                    <div class="accordion-arrow">↓</div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>醫療與樂齡福祉 (Healthcare & Smart Mobility)</span>
+                    <div class="accordion-arrow">↓</div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>新能源 – 氫能燃料電池金屬雙極板 (Green Energy Solutions)</span>
+                    <div class="accordion-arrow">↓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Enterprise Capabilities (Matches JH Team Grid Style) -->
+    <section class="capabilities-section" id="technology">
+        <div class="services-header">
+            <span class="section-tag">[ OUR CAPABILITIES ]</span>
+            <h2>企業核心競爭力</h2>
+        </div>
+
+        <div class="capabilities-grid">
+            <div class="cap-card">
+                <div class="cap-circle-img">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" alt="Mold Design">
+                </div>
+                <h3>模具研發力</h3>
+                <p>具備連續模（Progressive Die）與單動模研發能力，結合 CAE 模擬分析顯著縮短開發時間。</p>
+            </div>
+
+            <div class="cap-card">
+                <div class="cap-circle-img">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="Stamping Manufacturing">
+                </div>
+                <h3>智能沖壓製造</h3>
+                <p>導入大噸位精密沖壓設備與多軸機械手臂自動化生產線，維持極高產能與良率。</p>
+            </div>
+
+            <div class="cap-card">
+                <div class="cap-circle-img">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80" alt="Global Quality Standards">
+                </div>
+                <h3>國際品質認證</h3>
+                <p>全面通過多項嚴苛國際體系驗證，確保汽車級供應標準與環境友善製造。</p>
+                <div class="cap-badges">
+                    <span class="cap-badge">ISO 9001</span>
+                    <span class="cap-badge">ISO 14001</span>
+                    <span class="cap-badge">IATF 16949</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>州巧科技股份有限公司 Jochu Technology Co., Ltd.</h3>
+                <p>📍 總公司：新竹縣湖口鄉新竹工業區光復路20號 | 📞 +886-3-598-5177</p>
+                <p>✉️ 發言人信箱：ir@jochu.com</p>
+            </div>
+            <div class="footer-right">
+                <p>Copyright © Jochu Technology Co., Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
