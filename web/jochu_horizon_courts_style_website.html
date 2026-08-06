@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>州巧科技 JOCHU Technology | 精密製造 ‧ 永續未來</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-navy: #0B132A;
+            --sky-blue: #38BDF8;
+            --accent-blue: #0284C7;
+            --soft-blue-bg: #E0F2FE;
+            --bg-canvas: #F8FAFC;
+            --card-white: #FFFFFF;
+            --card-dark: #0F172A;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --border-light: #E2E8F0;
+            --radius-xl: 24px;
+            --radius-lg: 16px;
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- Header Navigation --- */
+        header {
+            background: var(--card-white);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--brand-navy);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-left: 1px solid var(--border-light);
+            padding-left: 12px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        .btn-navy-pill {
+            background: var(--brand-navy);
+            color: #FFFFFF;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .btn-navy-pill:hover {
+            background: var(--accent-blue);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
+        }
+
+        /* --- 1. Hero Section (Rounded Overlay Image Box) --- */
+        .hero-section {
+            padding: 40px 80px 60px 80px;
+        }
+
+        .hero-card {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            height: 520px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(11, 19, 42, 0.2) 0%, rgba(11, 19, 42, 0.75) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 40px;
+        }
+
+        .hero-title {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .hero-play-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #FFFFFF;
+            transition: var(--transition);
+        }
+
+        .hero-play-pill:hover {
+            background: #FFFFFF;
+            color: var(--brand-navy);
+        }
+
+        .play-dot {
+            width: 24px;
+            height: 24px;
+            background: var(--sky-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: var(--brand-navy);
+        }
+
+        /* --- 2. About / Feature Grid Section --- */
+        .section-padding {
+            padding: 60px 80px;
+        }
+
+        .section-header-split {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: baseline;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-headline {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--brand-navy);
+            line-height: 1.35;
+        }
+
+        .three-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* Card 1: Dark Navy Card */
+        .card-dark {
+            background: var(--card-dark);
+            color: #FFFFFF;
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-dark p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #94A3B8;
+        }
+
+        .btn-sky-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--sky-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-navy);
+            font-weight: bold;
+            margin-top: 24px;
+            transition: var(--transition);
+        }
+
+        .btn-sky-circle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Card 2: Center Image Box with Oval Tag */
+        .card-img-box {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 320px;
+        }
+
+        .card-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .img-oval-tag {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #FFFFFF;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* Card 3: Light Stat Card */
+        .card-stat {
+            background: var(--card-white);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stat-big-num {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--brand-navy);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-subtext {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .stat-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .bar-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bar-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .dot-blue {
+            width: 6px;
+            height: 6px;
+            background: var(--sky-blue);
+            border-radius: 50%;
+        }
+
+        /* Numbers Stats Row */
+        .four-stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: var(--card-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .stat-col .val {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--brand-navy);
+        }
+
+        .stat-col .lbl {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* --- 3. Product Services Section (Wide Cards) --- */
+        .service-cards-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .s-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 260px;
+        }
+
+        .s-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .s-card-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* --- 4. Membership / Plan Cards --- */
+        .pricing-section-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .pricing-blue-banner {
+            background: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            color: #FFFFFF;
+            box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2);
+        }
+
+        .p-top-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .p-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .p-price {
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .pricing-blue-banner h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .pricing-blue-banner p {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .plan-list-box {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .plan-item-row {
+            background: var(--card-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--brand-navy);
+        }
+
+        .btn-pill-small {
+            background: #0F172A;
+            color: #FFFFFF;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* --- 5. Testimonial / Story Section --- */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--card-white);
+            border-radius: var(--radius-xl);
+            padding: 50px;
+            border: 1px solid var(--border-light);
+        }
+
+        .story-quote {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: var(--brand-navy);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .story-stars {
+            color: #F59E0B;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .story-author {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--brand-navy);
+        }
+
+        .story-role {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .story-img-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 320px;
+        }
+
+        .story-img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- 6. FAQ Accordion Section --- */
+        .faq-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .faq-left-img {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 380px;
+        }
+
+        .faq-left-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--card-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--brand-navy);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .faq-circle-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--card-dark);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* --- 7. Dark Banner Promo Section --- */
+        .promo-dark-banner {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            height: 260px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .promo-dark-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .promo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(11, 19, 42, 0.85) 0%, rgba(11, 19, 42, 0.4) 100%);
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #FFFFFF;
+        }
+
+        .promo-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+
+        .subscribe-input-box {
+            display: flex;
+            gap: 12px;
+            max-width: 420px;
+        }
+
+        .subscribe-input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .subscribe-btn {
+            background: var(--sky-blue);
+            color: var(--brand-navy);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .subscribe-btn:hover {
+            background: #FFFFFF;
+        }
+
+        /* --- 8. Footer (Dark Navy) --- */
+        footer {
+            background: var(--brand-navy);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 80px 80px 40px 80px;
+            margin-top: 60px;
+            font-size: 13px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-intro {
+            max-width: 420px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-pill-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #FFFFFF;
+        }
+
+        .footer-brand-giant {
+            font-size: 64px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+        }
+
+        .footer-bottom-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            header, .hero-section, .section-padding, footer { padding: 30px 20px; }
+            .hero-title { font-size: 36px; }
+            .three-cards-grid, .four-stats-row, .service-cards-row, .pricing-section-grid, .story-grid, .faq-split-grid { grid-template-columns: 1fr; }
+            .footer-top { flex-direction: column; gap: 30px; }
+            .footer-brand-giant { font-size: 38px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            JOCHU
+            <span class="logo-tag">州巧科技</span>
+        </div>
+        <nav>
+            <a href="#about">關於州巧</a>
+            <a href="#technology">核心技術</a>
+            <a href="#products">產品服務</a>
+            <a href="#esg">永續發展</a>
+            <a href="#investors">投資人專區</a>
+        </nav>
+        <a href="#contact" class="btn-navy-pill">聯絡我們</a>
+    </header>
+
+    <!-- 1. Hero Section (Matches Horizon Courts Rounded Overlay Image Box) -->
+    <section class="hero-section">
+        <div class="hero-card">
+            <img class="hero-bg-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=80" alt="Jochu Manufacturing Excellence">
+            <div class="hero-overlay">
+                <h1 class="hero-title">精工淬鍊 ‧ 智能引領<br>打造極致金屬工藝未來</h1>
+                <p class="hero-subtitle">州巧科技以高精密沖壓與模具開發為核心，深耕 TFT-LCD 光電機構件，並跨足高值化傢俱與樂齡醫療福祉。</p>
+                <a href="#products" class="hero-play-pill">
+                    <span class="play-dot">▶</span> 探索核心業務與技術
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Feature Grid & Stats Section -->
+    <section class="section-padding" id="about">
+        <div class="section-header-split">
+            <span class="section-tag">[ ABOUT JOCHU ]</span>
+            <h2 class="section-headline">我們不只製造組件，更為全球頂尖品牌賦能。自 2000 年成立以來，州巧科技已成為高精密金屬加工領域的長期信任夥伴。</h2>
+        </div>
+
+        <div class="three-cards-grid">
+            <!-- Card 1: Dark Navy -->
+            <div class="card-dark">
+                <div>
+                    <p>「以極致品質、連續模研發力與自動化無人生產線，為全球客戶提供穩定的高精密度組件解決方案。」</p>
+                </div>
+                <div class="btn-sky-circle">↗</div>
+            </div>
+
+            <!-- Card 2: Center Image Box -->
+            <div class="card-img-box">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Automation Line">
+                <div class="img-oval-tag">精密沖壓 ‧ 自動化生產</div>
+            </div>
+
+            <!-- Card 3: Light Stat Card -->
+            <div class="card-stat">
+                <div>
+                    <div class="stat-big-num">100+</div>
+                    <div class="stat-subtext">全球頂尖企業合作專案</div>
+                </div>
+                <div class="stat-bars">
+                    <div class="bar-item">
+                        <span>光電機構件 (TFT-LCD)</span>
+                        <div class="bar-dots"><span class="dot-blue"></span><span class="dot-blue"></span><span class="dot-blue"></span><span class="dot-blue"></span><span class="dot-blue"></span></div>
+                    </div>
+                    <div class="bar-item">
+                        <span>精品金屬傢俱</span>
+                        <div class="bar-dots"><span class="dot-blue"></span><span class="dot-blue"></span><span class="dot-blue"></span></div>
+                    </div>
+                    <div class="bar-item">
+                        <span>樂齡照護輔具</span>
+                        <div class="bar-dots"><span class="dot-blue"></span><span class="dot-blue"></span><span class="dot-blue"></span><span class="dot-blue"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 Numbers Stats Row -->
+        <div class="four-stats-row">
+            <div class="stat-col">
+                <div class="val">500+</div>
+                <div class="lbl">全球合作專案</div>
+            </div>
+            <div class="stat-col">
+                <div class="val">25+</div>
+                <div class="lbl">深耕製造年資</div>
+            </div>
+            <div class="stat-col">
+                <div class="val">20+</div>
+                <div class="lbl">關鍵專利佈局</div>
+            </div>
+            <div class="stat-col">
+                <div class="val">4大</div>
+                <div class="lbl">全球生產據點</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Core Business Services (Wide Cards) -->
+    <section class="section-padding" id="products">
+        <div class="section-header-split">
+            <span class="section-tag">[ CORE BUSINESS ]</span>
+            <h2 class="section-headline">三大核心業務版塊 — 提供全方位精密金屬與智慧醫療解決方案。</h2>
+        </div>
+
+        <div class="service-cards-row">
+            <div class="s-card">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Optoelectronics">
+                <div class="s-card-tag">01. 光電與資通訊機構件</div>
+            </div>
+            <div class="s-card">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Furniture">
+                <div class="s-card-tag">02. 高值化金屬傢俱</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Membership / Solutions Section (Matches Horizon Blue Banner Grid) -->
+    <section class="section-padding">
+        <div class="pricing-section-grid">
+            <div class="pricing-blue-banner">
+                <div class="p-top-flex">
+                    <span class="p-badge">GREEN ENERGY</span>
+                    <span class="p-price">ESG</span>
+                </div>
+                <h3>氫能燃料電池金屬雙極板</h3>
+                <p>前瞻布局新能源戰略，成功突破超薄金屬雙極板之高精度成型與表面處理工藝，落實永續低碳製造。</p>
+            </div>
+
+            <div class="plan-list-box">
+                <div class="plan-item-row">
+                    <span>醫療與樂齡福祉 (智能電動輪椅)</span>
+                    <span class="btn-pill-small">了解詳情 ↗</span>
+                </div>
+                <div class="plan-item-row">
+                    <span>模具研發力 (連續模與 CAE 模擬)</span>
+                    <span class="btn-pill-small">了解詳情 ↗</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Testimonial / Story Section (Matches Review Card) -->
+    <section class="section-padding">
+        <div class="story-grid">
+            <div>
+                <div class="story-stars">★★★★★ 5.0</div>
+                <div class="story-quote">
+                    「州巧科技不僅擁有極高精度的沖壓技術，其團隊在模具開發與自動化導入上的專業度，幫助我們顯著提升了產品良率與交付速度。」
+                </div>
+                <div class="story-author">國際顯示器大廠 供應鏈總監</div>
+                <div class="story-role">長期戰略合作夥伴</div>
+            </div>
+            <div class="story-img-card">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Partner Testimonial">
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FAQ Section -->
+    <section class="section-padding" id="technology">
+        <div class="section-header-split">
+            <span class="section-tag">[ FAQ & CAPABILITIES ]</span>
+            <h2 class="section-headline">關於州巧的核心競爭力與常見解答</h2>
+        </div>
+
+        <div class="faq-split-grid">
+            <div class="faq-left-img">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Quality Standards">
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <span>州巧科技具備哪些國際品質認證？</span>
+                    <div class="faq-circle-icon">+</div>
+                </div>
+                <div class="faq-item">
+                    <span>連續模（Progressive Die）研發優勢為何？</span>
+                    <div class="faq-circle-icon">+</div>
+                </div>
+                <div class="faq-item">
+                    <span>全球據點如何提供即時供貨服務？</span>
+                    <div class="faq-circle-icon">+</div>
+                </div>
+                <div class="faq-item">
+                    <span>如何落實綠色製造與 ESG 永續目標？</span>
+                    <div class="faq-circle-icon">+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Dark Banner Promo Section (Matches Subscribe Card) -->
+    <section class="section-padding" id="esg">
+        <div class="promo-dark-banner">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Subscribe Updates">
+            <div class="promo-overlay">
+                <div class="promo-title">訂閱州巧最新動態與永續報告書</div>
+                <div class="subscribe-input-box">
+                    <input type="email" class="subscribe-input" placeholder="請輸入您的 Email 信箱...">
+                    <button class="subscribe-btn">立即訂閱</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer Section (Dark Navy Horizon Style) -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-intro">
+                <strong>州巧科技股份有限公司 Jochu Technology Co., Ltd.</strong><br>
+                以高精密沖壓與模具開發為核心，深耕光電機構件，並跨足高值化傢俱與樂齡醫療福祉。
+            </div>
+            <div class="footer-pills">
+                <span class="footer-pill-item">新竹總部</span>
+                <span class="footer-pill-item">蘇州廠</span>
+                <span class="footer-pill-item">廈門廠</span>
+                <span class="footer-pill-item">越南廠</span>
+            </div>
+        </div>
+
+        <div class="footer-brand-giant">JOCHU</div>
+
+        <div class="footer-bottom-flex">
+            <div>Copyright © Jochu Technology Co., Ltd. All Rights Reserved.</div>
+            <div>隱私權聲明 | 法律條款</div>
+        </div>
+    </footer>
+
+</body>
+</html>
