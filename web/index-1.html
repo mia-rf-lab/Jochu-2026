@@ -11,7 +11,7 @@
     <style>
         :root {
             --sky-blue: #2374E1;
-            --electric-lime: #80E326;
+            --electric-lime: #F39800;
             --dark-navy: #0A1E3F;
             --pure-white: #FFFFFF;
             --light-bg: #F8FAFC;
@@ -121,9 +121,9 @@
             color: var(--pure-white);
             display: flex;
             flex-direction: column;
-            justify-content: flex-between;
+            justify-content: space-between;
             overflow: hidden;
-            padding: 140px 60px 60px 60px;
+            padding: 120px 60px 60px 60px;
         }
 
         /* Sky cloud texture effect */
@@ -139,9 +139,11 @@
 
         .hero-title-wrapper {
             position: relative;
-            z-index: 2;
-            text-align: center;
+            z-index: 10; /* Text sits cleanly on top of the big image */
+            text-align: left;
             margin-top: 20px;
+            max-width: 1000px;
+            pointer-events: none;
         }
 
         .giant-title {
@@ -151,32 +153,34 @@
             line-height: 0.9;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 20px 50px rgba(10, 30, 63, 0.2);
+            text-shadow: 0 15px 40px rgba(10, 30, 63, 0.4);
             margin-bottom: 20px;
+            color: var(--pure-white);
         }
 
         .giant-title span {
             color: var(--electric-lime);
+            text-shadow: 0 0 25px rgba(243, 152, 0, 0.5);
         }
 
         .hero-action-card {
-            position: absolute;
-            left: 60px;
-            bottom: 60px;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.12);
+            position: relative;
+            z-index: 15;
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 24px 32px;
-            border-radius: 8px;
-            max-width: 320px;
+            border-radius: 12px;
+            max-width: 340px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
         }
 
         .hero-action-card .since {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            opacity: 0.8;
+            opacity: 0.9;
             margin-bottom: 8px;
         }
 
@@ -209,15 +213,19 @@
             color: var(--sky-blue);
         }
 
-        /* Dynamic subject image center */
+        /* Full-scale Big Impact Hero Subject Image with Left Fade Blend */
         .hero-subject-img {
             position: absolute;
             bottom: 0;
-            right: 10%;
-            height: 85%;
-            z-index: 5;
-            object-fit: contain;
-            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.25));
+            right: 0;
+            width: 65%;
+            height: 100%;
+            z-index: 2; /* Below text (z-index: 10) */
+            object-fit: cover;
+            object-position: center right;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 15%, #000 40%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 15%, #000 40%);
         }
 
         /* --- Section A: Editorial Intro --- */
@@ -627,54 +635,57 @@
             background: var(--sky-blue);
         }
 
-        /* --- Footer --- */
+        /* --- Footer (Dark Navy Horizon Style) --- */
         footer {
             background: var(--dark-navy);
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.75);
             padding: 80px 80px 40px 80px;
+            margin-top: 60px;
             font-size: 13px;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
         }
 
-        .footer-logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--pure-white);
-            margin-bottom: 16px;
-        }
-
-        .footer-title {
-            color: var(--pure-white);
+        .footer-intro {
+            max-width: 420px;
             font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            line-height: 1.7;
         }
 
-        .footer-links {
-            list-style: none;
+        .footer-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-        .footer-links li {
-            margin-bottom: 10px;
+        .footer-pill-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #FFFFFF;
         }
 
-        .footer-links a:hover {
-            color: var(--electric-lime);
+        .footer-brand-giant {
+            font-family: 'Oswald', sans-serif;
+            font-size: 64px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            text-align: center;
+        .footer-bottom-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 12px;
             color: rgba(255, 255, 255, 0.4);
         }
@@ -896,40 +907,26 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Section (Dark Navy Horizon Style) -->
     <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="footer-logo">JOCHU</div>
-                <p style="margin-bottom: 12px; color: #FFFFFF; font-weight: 600;">州巧科技股份有限公司 Jochu Technology Co., Ltd.</p>
-                <p>📍 總公司：新竹縣湖口鄉新竹工業區光復路20號</p>
-                <p>📞 電話：+886-3-598-5177</p>
-                <p>✉️ 信箱：ir@jochu.com</p>
+        <div class="footer-top">
+            <div class="footer-intro">
+                <strong>州巧科技股份有限公司 Jochu Technology Co., Ltd.</strong><br>
+                以高精密沖壓與模具開發為核心，深耕光電機構件，並跨足高值化傢俱與樂齡醫療福祉。
             </div>
-
-            <div>
-                <div class="footer-title">全球據點</div>
-                <ul class="footer-links">
-                    <li><a href="#">新竹總部 (Taiwan)</a></li>
-                    <li><a href="#">蘇州廠 (Suzhou)</a></li>
-                    <li><a href="#">廈門廠 (Xiamen)</a></li>
-                    <li><a href="#">越南廠 (Vietnam)</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <div class="footer-title">網站導覽</div>
-                <ul class="footer-links">
-                    <li><a href="#about">關於州巧</a></li>
-                    <li><a href="#technology">核心技術</a></li>
-                    <li><a href="#products">產品服務</a></li>
-                    <li><a href="#esg">永續發展 (ESG)</a></li>
-                </ul>
+            <div class="footer-pills">
+                <span class="footer-pill-item">新竹總部</span>
+                <span class="footer-pill-item">蘇州廠</span>
+                <span class="footer-pill-item">廈門廠</span>
+                <span class="footer-pill-item">越南廠</span>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            Copyright © Jochu Technology Co., Ltd. All Rights Reserved. 州巧科技 版權所有
+        <div class="footer-brand-giant">JOCHU</div>
+
+        <div class="footer-bottom-flex">
+            <div>Copyright © Jochu Technology Co., Ltd. All Rights Reserved. 州巧科技 版權所有</div>
+            <div>隱私權聲明 | 法律條款</div>
         </div>
     </footer>
 
