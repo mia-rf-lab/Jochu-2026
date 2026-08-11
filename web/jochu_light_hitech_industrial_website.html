@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>州巧科技 JOCHU Technology (3543.TW) | 以鋼鐵之精，築未來之形</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Light Theme Canvas Backgrounds */
+            --bg-canvas: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --bg-steel-subtle: #F1F5F9;
+            --bg-metal-card: #E2E8F0;
+            
+            /* Industrial Precision Steel Accent Colors */
+            --steel-dark: #0F172A;
+            --steel-deep: #1E293B;
+            --steel-blue: #334155;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --border-light: #E2E8F0;
+            
+            /* Precision Laser & AI Accents (High-Tech Points) */
+            --laser-blue: #0088FF;
+            --laser-blue-glow: rgba(0, 136, 255, 0.25);
+            --laser-cyan: #00F0FF;
+            --titanium-accent: #64748B;
+            --electric-green: #10B981;
+            
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            line-height: 1.65;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- Laser Cut Geometry Grid Line Overlay (Light Mode) --- */
+        .laser-grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(0, 136, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 136, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* --- Floating Light Glass Header --- */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 80px);
+            max-width: 1360px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-bottom: 2px solid var(--laser-blue);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .logo {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: var(--steel-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-stock {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--laser-blue);
+            background: rgba(0, 136, 255, 0.08);
+            border: 1px solid rgba(0, 136, 255, 0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--laser-blue);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--laser-blue);
+        }
+
+        .btn-laser {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #FFFFFF;
+            background: var(--steel-dark);
+            padding: 10px 24px;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+            transition: var(--transition);
+            letter-spacing: 1px;
+        }
+
+        .btn-laser:hover {
+            background: var(--laser-blue);
+            box-shadow: 0 0 20px var(--laser-blue-glow);
+        }
+
+        /* --- Full Width Hero Cover Section (左右滿版封面大圖) --- */
+        .hero {
+            position: relative;
+            z-index: 1;
+            width: 100vw;
+            min-height: 100vh;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 160px 80px 80px 80px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2200&q=80') center/cover no-repeat;
+        }
+
+        .hero-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-slogan-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #FFFFFF;
+            background: rgba(0, 136, 255, 0.35);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 6px 18px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .laser-point {
+            width: 6px;
+            height: 6px;
+            background: var(--laser-cyan);
+            box-shadow: 0 0 8px var(--laser-cyan);
+        }
+
+        .hero-title {
+            font-size: 60px;
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            color: #FFFFFF;
+            margin-bottom: 24px;
+            max-width: 1000px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .hero-title span {
+            color: var(--laser-cyan);
+        }
+
+        .hero-subtitle-slogan {
+            font-size: 22px;
+            font-weight: 700;
+            color: #E2E8F0;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.8;
+            max-width: 780px;
+            font-weight: 300;
+            margin-bottom: 48px;
+        }
+
+        /* Glassmorphism Floating Stats Box inside Hero Cover */
+        .hero-steel-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid var(--laser-blue);
+            padding: 28px 36px;
+            max-width: 1100px;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+        }
+
+        .steel-stat-item .val {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .steel-stat-item .val span {
+            color: var(--laser-cyan);
+        }
+
+        .steel-stat-item .lbl {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* --- Common Section Container Styles --- */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 120px 80px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: var(--laser-blue);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--steel-dark);
+            letter-spacing: -1px;
+        }
+
+        /* --- Section 1: Core Business Tri-Pillars (Minimal Steel Cards) --- */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .steel-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            padding: 44px 36px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+        }
+
+        .steel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--laser-blue);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .steel-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 136, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 136, 255, 0.1);
+        }
+
+        .steel-card:hover::before {
+            opacity: 1;
+        }
+
+        .steel-card-num {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--laser-blue);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .steel-card h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--steel-dark);
+            margin-bottom: 16px;
+        }
+
+        .steel-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            font-weight: 400;
+        }
+
+        .metal-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .metal-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--steel-blue);
+            background: var(--bg-steel-subtle);
+            border: 1px solid var(--border-light);
+            padding: 5px 12px;
+            border-radius: 2px;
+        }
+
+        /* --- Section 2: Premium Craftsmanship Highlight (Minimal Precision Showcase) --- */
+        .craftsmanship-section {
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 100px 80px;
+        }
+
+        .craft-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .craft-img-box {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-light);
+        }
+
+        .craft-img-box img {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .craft-overlay-tag {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            color: #FFFFFF;
+            padding: 12px 24px;
+            border-left: 3px solid var(--laser-blue);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .craft-content h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--steel-dark);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .craft-content p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .craft-feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .craft-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .craft-item-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(0, 136, 255, 0.08);
+            border: 1px solid rgba(0, 136, 255, 0.2);
+            color: var(--laser-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .craft-item-text h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--steel-dark);
+            margin-bottom: 4px;
+        }
+
+        .craft-item-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* --- Section 3: AI & Server Infrastructure / ESG Split --- */
+        .split-ai-esg {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+        }
+
+        .ai-server-box {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-top: 3px solid var(--laser-blue);
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .ai-server-box h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--steel-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .ai-server-box p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        /* Green ESG Bipolar Plate Card */
+        .esg-card {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            padding: 50px;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 40px rgba(5, 150, 105, 0.2);
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+        }
+
+        .esg-card h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .esg-card p {
+            font-size: 15px;
+            color: #D1FAE5;
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .btn-green-laser {
+            display: inline-block;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #047857;
+            background: #FFFFFF;
+            padding: 12px 28px;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+            transition: var(--transition);
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .btn-green-laser:hover {
+            background: var(--steel-dark);
+            color: #FFFFFF;
+        }
+
+        /* --- Section 4: Global Footprint --- */
+        .global-section {
+            background: var(--bg-steel-subtle);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 100px 80px;
+        }
+
+        .global-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .global-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            padding: 28px 20px;
+            text-align: center;
+            transition: var(--transition);
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+        }
+
+        .global-card:hover {
+            border-color: var(--laser-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .global-card .code {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--laser-blue);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .global-card .plant-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--steel-dark);
+        }
+
+        /* --- Clean Light Footer --- */
+        footer {
+            padding: 80px 80px 40px 80px;
+            max-width: 1440px;
+            margin: 0 auto;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h2 {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--steel-dark);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .footer-brand p {
+            line-height: 1.8;
+            max-width: 460px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-info {
+            line-height: 2;
+            color: var(--text-main);
+        }
+
+        .footer-title {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--steel-dark);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--laser-blue);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-light);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            header { width: calc(100% - 40px); padding: 14px 24px; }
+            .hero { padding: 140px 30px 60px 30px; min-height: 80vh; }
+            .hero-title { font-size: 38px; }
+            .hero-steel-stats, .business-grid, .craft-grid, .split-ai-esg, .global-grid, .footer-grid { grid-template-columns: 1fr; }
+            section, .craftsmanship-section, .global-section, footer { padding: 60px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Geometry Laser Cut Grid Background -->
+    <div class="laser-grid-bg"></div>
+
+    <!-- Floating Light Glass Header -->
+    <header>
+        <div class="logo">
+            JOCHU
+            <span class="logo-stock">3543.TW</span>
+        </div>
+        <nav>
+            <a href="#about" class="active">關於州巧</a>
+            <a href="#business">三大核心版圖</a>
+            <a href="#craftsmanship">頂級工藝</a>
+            <a href="#ai-esg">AI 與綠能</a>
+            <a href="#global">全球據點</a>
+        </nav>
+        <a href="#contact" class="btn-laser">CONTACT US</a>
+    </header>
+
+    <!-- Full Width Hero Cover Section (左右滿版封面大圖) -->
+    <section class="hero" id="about">
+        <div class="hero-container">
+            <div class="hero-slogan-tag">
+                <span class="laser-point"></span> THE BACKBONE OF INTELLIGENCE AND LIVING
+            </div>
+            
+            <div class="hero-subtitle-slogan">「以鋼鐵之精，築未來之形」</div>
+            
+            <h1 class="hero-title">
+                鋼鐵骨架 ‧ 頂級工藝 ‧ <span>智能科技</span>
+            </h1>
+            
+            <p class="hero-desc">
+                州巧科技（台股代碼：3543）成立於 2000 年，總部位於新竹湖口工業區。天天與大型沖壓機、鋼板及焊接打交道，我們以一絲不苟的「高精尖重工業」精神，從 TFT-LCD 面板金屬機構件代工（OEM）成功進化為高階 ODM 設計製造商，深度賦能北歐精品傢俱、日本高階醫療與 AI 伺服器全球大廠。
+            </p>
+
+            <!-- Steel Industrial Stats Box inside Hero Cover -->
+            <div class="hero-steel-stats">
+                <div class="steel-stat-item">
+                    <div class="val">25<span>+</span></div>
+                    <div class="lbl">多年高階金屬沖壓經驗</div>
+                </div>
+                <div class="steel-stat-item">
+                    <div class="val">5<span>大</span></div>
+                    <div class="lbl">全球智慧製造據點</div>
+                </div>
+                <div class="steel-stat-item">
+                    <div class="val">ODM</div>
+                    <div class="lbl">高階設計製造服務</div>
+                </div>
+                <div class="steel-stat-item">
+                    <div class="val">3543</div>
+                    <div class="lbl">台灣證券交易所上市</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Business Section (Three Main Industrial Pillars) -->
+    <section id="business">
+        <div class="section-header">
+            <div class="section-subtitle">Core Business Pillars</div>
+            <h2 class="section-title">三大核心產品版圖</h2>
+        </div>
+
+        <div class="business-grid">
+            <!-- Pillar 1 -->
+            <div class="steel-card">
+                <div class="steel-card-num">01 / OPTOELECTRONICS</div>
+                <h3>光電金屬零組件</h3>
+                <p>深耕液晶顯示器、電視及車載面板所需之精密金屬前框與背板，憑藉連續模研發力與大噸位沖壓設備，穩居全球光電一線供應鏈。</p>
+                <div class="metal-tags">
+                    <span class="metal-tag">TFT-LCD 金屬前框</span>
+                    <span class="metal-tag">車載面板背板</span>
+                    <span class="metal-tag">連續模沖壓</span>
+                </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="steel-card">
+                <div class="steel-card-num">02 / HIGH-VALUE FURNITURE</div>
+                <h3>高值化家居金屬製品</h3>
+                <p>將極致金屬折彎與工藝美學帶入高階時尚家居，攜手北歐精品傢俱品牌，開發兼具高結構強度、細緻質感與可永續規格之金屬製品。</p>
+                <div class="metal-tags">
+                    <span class="metal-tag">北歐傢俱供應鏈</span>
+                    <span class="metal-tag">金屬極簡工藝</span>
+                    <span class="metal-tag">客製化高階設計</span>
+                </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="steel-card">
+                <div class="steel-card-num">03 / HEALTHCARE & ACCESSIBILITY</div>
+                <h3>醫療福祉與照護輔具</h3>
+                <p>回應全球高齡化長照需求，跨足醫療輔具及器械零組件（如日本醫療大廠輪椅周邊、照護床零組件）研發與售後服務，守護樂齡尊嚴。</p>
+                <div class="metal-tags">
+                    <span class="metal-tag">智能輪椅周邊</span>
+                    <span class="metal-tag">照護床零組件</span>
+                    <span class="metal-tag">日本醫療級驗證</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Premium Craftsmanship Highlight (高級感與細節堆砌) -->
+    <div class="craftsmanship-section" id="craftsmanship">
+        <div class="craft-grid">
+            <div class="craft-img-box">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Precision Metal Details">
+                <div class="craft-overlay-tag">PREMIUM CRAFTSMANSHIP & ACCURACY</div>
+            </div>
+
+            <div class="craft-content">
+                <div class="section-subtitle">Premium Standards</div>
+                <h3>隱藏在骨架裡的奢華 ‧ 頂級工藝細節</h3>
+                <p>能順利通過北歐精品傢俱 IKEA 與日本高階輪椅大廠的嚴苛稽核，代表州巧在品質、安全與環保標準均符合世界最高規格。我們像呈現藝術品般對待每一件金屬機構件。</p>
+
+                <div class="craft-feature-list">
+                    <div class="craft-item">
+                        <div class="craft-item-icon">01</div>
+                        <div class="craft-item-text">
+                            <h4>圓潤倒角與極致成型</h4>
+                            <p>獨家金屬沖壓與折彎技術，確保觸感光滑平整，兼具極致結構強度與線條美感。</p>
+                        </div>
+                    </div>
+
+                    <div class="craft-item">
+                        <div class="craft-item-icon">02</div>
+                        <div class="craft-item-text">
+                            <h4>無縫焊接與完美表面烤漆</h4>
+                            <p>導入自動化焊接手臂與環保高品質烤漆塗裝，呈現精緻防腐耐磨的質感。」</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: AI Infrastructure & Green Energy (AI 科技感與綠能) -->
+    <section id="ai-esg">
+        <div class="split-ai-esg">
+            <!-- AI Server Infrastructure Box -->
+            <div class="ai-server-box">
+                <div class="section-subtitle">AI & Server Infrastructure</div>
+                <h3>AI 雲端數據中心 ‧ 伺服器機櫃機構件</h3>
+                <p>站上科技浪尖！州巧科技將高強度鋼材精密加工技術，延伸至 AI 數據中心與雲端伺服器機櫃機構組件，讓堅固的鋼鐵成為數位運算世界的堅實後盾。</p>
+
+                <div class="metal-tags" style="margin-top: 20px;">
+                    <span class="metal-tag">AI 伺服器機櫃</span>
+                    <span class="metal-tag">數據中心結構件</span>
+                    <span class="metal-tag">車用高強度鋼焊接</span>
+                </div>
+            </div>
+
+            <!-- Green ESG Hydrogen Card -->
+            <div class="esg-card" id="esg">
+                <div>
+                    <div class="section-subtitle" style="color: #6EE7B7;">Green Energy & Hydrogen</div>
+                    <h3>永續綠能 ‧ 氫能燃料電池金屬雙極板</h3>
+                    <p>因應全球 ESG 淨零碳排趨勢，州巧積極推動智能化綠色製程，並突破金屬雙極板等燃料電池關鍵零組件之超薄成型與表面處理技術。</p>
+                </div>
+                <div>
+                    <a href="#" class="btn-green-laser">DOWNLOAD ESG REPORT 📄</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Footprint Section -->
+    <div class="global-section" id="global">
+        <div class="section-header" style="margin-bottom: 0;">
+            <div class="section-subtitle">Global Production Footprint</div>
+            <h2 class="section-title">五大全球智慧生產基地</h2>
+        </div>
+
+        <div class="global-grid">
+            <div class="global-card">
+                <div class="code">HQ / TAIWAN</div>
+                <div class="plant-title">新竹湖口總部</div>
+            </div>
+            <div class="global-card">
+                <div class="code">TW / PLANT</div>
+                <div class="plant-title">台南廠</div>
+            </div>
+            <div class="global-card">
+                <div class="code">CN / SUZHOU</div>
+                <div class="plant-title">蘇州廠</div>
+            </div>
+            <div class="global-card">
+                <div class="code">CN / XIAMEN</div>
+                <div class="plant-title">廈門廠</div>
+            </div>
+            <div class="global-card">
+                <div class="code">VN / HENAN</div>
+                <div class="plant-title">越南河南廠</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Precision Light Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>JOCHU</h2>
+                <p>州巧科技股份有限公司 Jochu Technology Co., Ltd.（台股代碼：3543）<br>The Backbone of Intelligence and Living. 以鋼鐵之精，築未來之形。</p>
+                <div class="footer-contact-info">
+                    📍 總公司：新竹縣湖口鄉新竹工業區光復路20號<br>
+                    📞 電話：+886-3-598-5177<br>
+                    ✉️ 投資人/發言人信箱：ir@jochu.com
+                </div>
+            </div>
+
+            <div>
+                <div class="footer-title">全球生產據點</div>
+                <ul class="footer-links">
+                    <li><a href="#">新竹湖口總部 (Taiwan)</a></li>
+                    <li><a href="#">台南廠 (Tainan)</a></li>
+                    <li><a href="#">蘇州廠 (Suzhou)</a></li>
+                    <li><a href="#">廈門廠 (Xiamen)</a></li>
+                    <li><a href="#">越南河南廠 (Henan)</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-title">快速導覽</div>
+                <ul class="footer-links">
+                    <li><a href="#about">關於州巧</a></li>
+                    <li><a href="#business">三大核心版圖</a></li>
+                    <li><a href="#craftsmanship">頂級工藝</a></li>
+                    <li><a href="#ai-esg">AI 伺服器與綠能</a></li>
+                    <li><a href="#contact">投資人專區</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>Copyright © Jochu Technology Co., Ltd. All Rights Reserved. 州巧科技 版權所有</div>
+            <div>台股代碼：3543 | 隱私權政策與法律條款</div>
+        </div>
+    </footer>
+
+</body>
+</html>

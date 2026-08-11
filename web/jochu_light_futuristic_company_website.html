@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>州巧科技 JOCHU Technology (3543.TW) | 未來精密製造 ‧ 永續綠能</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-canvas: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --bg-subtle: #F1F5F9;
+            --brand-navy: #0A192F;
+            --accent-cyan: #00A3FF;
+            --accent-cyan-light: rgba(0, 163, 255, 0.08);
+            --accent-cyan-glow: rgba(0, 163, 255, 0.2);
+            --accent-green: #059669;
+            --accent-green-light: #ECFDF5;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --border-light: #E2E8F0;
+            --border-glow: rgba(0, 163, 255, 0.25);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- Floating Light Glass Header --- */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 80px);
+            max-width: 1320px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            padding: 16px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--brand-navy);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-stock {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            background: var(--accent-cyan-light);
+            border: 1px solid var(--border-glow);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-cyan);
+        }
+
+        .btn-cyan-glow {
+            background: linear-gradient(135deg, #00A3FF 0%, #0077FF 100%);
+            color: #FFFFFF;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(0, 163, 255, 0.25);
+        }
+
+        .btn-cyan-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 163, 255, 0.4);
+        }
+
+        /* --- Full Cover Hero Section (大圖封面巨幕) --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            padding: 140px 60px 80px 60px;
+            margin-bottom: 60px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+        }
+
+        .hero-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #FFFFFF;
+            background: rgba(0, 163, 255, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin-bottom: 24px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            color: #FFFFFF;
+            margin-bottom: 24px;
+            max-width: 960px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-title span {
+            color: var(--accent-cyan);
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            max-width: 720px;
+            font-weight: 300;
+            margin-bottom: 48px;
+        }
+
+        /* Glassmorphism Floating Stats Box inside Hero */
+        .hero-stats-glass {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 28px 40px;
+            max-width: 900px;
+        }
+
+        .hero-stat-item .val {
+            font-size: 32px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .hero-stat-item .val span {
+            color: var(--accent-cyan);
+        }
+
+        .hero-stat-item .lbl {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* --- Common Section Styles --- */
+        section {
+            padding: 100px 60px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--text-primary);
+        }
+
+        /* --- Core Business Tri-Pillars (Clean Light Cards) --- */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .b-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 40px 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .b-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 40px rgba(0, 163, 255, 0.12);
+        }
+
+        .b-card-num {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .b-card h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .b-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            font-weight: 400;
+        }
+
+        .b-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .b-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: var(--bg-subtle);
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        /* --- Next-Gen Expansion & ESG (Split Grid) --- */
+        .split-expansion {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+        }
+
+        .expansion-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .expansion-card h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .expansion-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .tech-feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .tech-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .tech-feature-item .icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent-cyan-light);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* ESG Green Banner Card */
+        .esg-card {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            border-radius: 24px;
+            padding: 50px;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 40px rgba(5, 150, 105, 0.2);
+        }
+
+        .esg-card h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .esg-card p {
+            font-size: 15px;
+            color: #D1FAE5;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn-white-glow {
+            display: inline-block;
+            background: #FFFFFF;
+            color: var(--accent-green);
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-white-glow:hover {
+            background: var(--accent-cyan);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 163, 255, 0.3);
+        }
+
+        /* --- Global Footprint Section --- */
+        .global-section {
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 100px 60px;
+        }
+
+        .global-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .global-card {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-light);
+            padding: 28px 20px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .global-card:hover {
+            background: var(--bg-white);
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .global-card .flag-code {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .global-card .plant-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        /* --- Clean Light Footer --- */
+        footer {
+            padding: 80px 60px 40px 60px;
+            max-width: 1440px;
+            margin: 0 auto;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h2 {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--brand-navy);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .footer-brand p {
+            line-height: 1.8;
+            max-width: 440px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-info {
+            line-height: 2;
+        }
+
+        .footer-title {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-light);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            header { width: calc(100% - 40px); padding: 12px 24px; }
+            .hero { padding: 120px 30px 60px 30px; min-height: 80vh; }
+            .hero-title { font-size: 40px; }
+            .hero-stats-glass { grid-template-columns: 1fr; }
+            .business-grid, .split-expansion, .global-grid, .footer-grid { grid-template-columns: 1fr; }
+            section, .global-section, footer { padding: 60px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Glass Header -->
+    <header>
+        <div class="logo">
+            JOCHU
+            <span class="logo-stock">3543.TW</span>
+        </div>
+        <nav>
+            <a href="#about" class="active">關於州巧</a>
+            <a href="#business">三大版圖</a>
+            <a href="#nextgen">前瞻轉型</a>
+            <a href="#global">全球據點</a>
+            <a href="#esg">永續綠能</a>
+        </nav>
+        <a href="#contact" class="btn-cyan-glow">聯絡我們 ↗</a>
+    </header>
+
+    <!-- Full Cover Hero Section (封面大圖巨幕) -->
+    <section class="hero" id="about">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span> NEXT-GEN PRECISION ODM LEADER
+            </div>
+            <h1 class="hero-title">
+                從精密沖壓代工<br>
+                進化為 <span>全方位高階 ODM 解決方案</span>
+            </h1>
+            <p class="hero-desc">
+                州巧科技（股票代碼：3543）成立於 2000 年，總部位於新竹湖口工業區。我們以極致的金屬加工技術為基石，深耕 TFT-LCD 光電組件，並成功跨足高值化家居、醫療樂齡輔具與前瞻綠能科技。
+            </p>
+
+            <!-- Floating Glass Stats Box -->
+            <div class="hero-stats-glass">
+                <div class="hero-stat-item">
+                    <div class="val">25<span>+</span></div>
+                    <div class="lbl">多年高階金屬加工經驗</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="val">5<span>大</span></div>
+                    <div class="lbl">跨國智慧生產基地</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="val">ODM</div>
+                    <div class="lbl">關鍵零組件設計製造商</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Business Section (Light Clean Cards) -->
+    <section id="business">
+        <div class="section-header">
+            <div class="section-subtitle">Core Business Pillars</div>
+            <h2 class="section-title">三大核心產品版圖</h2>
+        </div>
+
+        <div class="business-grid">
+            <!-- Pillar 1 -->
+            <div class="b-card">
+                <div class="b-card-num">01 / OPTOELECTRONICS</div>
+                <h3>光電金屬零組件</h3>
+                <p>深耕液晶顯示器、電視及車載面板所需之金屬前框與背板沖壓，作為一線光電代工指標大廠，提供高良率與全球穩定產能。</p>
+                <div class="b-tags">
+                    <span class="b-tag">TFT-LCD 機構件</span>
+                    <span class="b-tag">車載面板背板</span>
+                    <span class="b-tag">金屬前框</span>
+                </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="b-card">
+                <div class="b-card-num">02 / PREMIUM FURNITURE</div>
+                <h3>高值化家居金屬製品</h3>
+                <p>將極致金屬加工工藝延伸至高階時尚家居，攜手國際知名品牌開發具備高結構強度、現代極簡美學與永續規格的傢俱用品。</p>
+                <div class="b-tags">
+                    <span class="b-tag">高階金屬傢俱</span>
+                    <span class="b-tag">精品家居零組件</span>
+                    <span class="b-tag">客製化設計</span>
+                </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="b-card">
+                <div class="b-card-num">03 / HEALTHCARE & ACCESSIBILITY</div>
+                <h3>醫療福祉與照護輔具</h3>
+                <p>看準全球高齡化長照需求，研發醫療輔具及器械零組件（如電動輪椅周邊、照護床零組件）與售後服務，守護樂齡尊嚴生活。</p>
+                <div class="b-tags">
+                    <span class="b-tag">智能輪椅周邊</span>
+                    <span class="b-tag">照護床零組件</span>
+                    <span class="b-tag">醫療級品質認證</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next-Gen Expansion & ESG Split Grid -->
+    <section id="nextgen">
+        <div class="split-expansion">
+            <!-- Expansion Card -->
+            <div class="expansion-card">
+                <div class="section-subtitle">Future Mobility & Cloud</div>
+                <h3>前瞻領域延伸 ‧ 車用與伺服器布局</h3>
+                <p>除了三大本業，州巧科技積極拓展高附加價值領域，跨足車用高強度鋼材焊接與沖壓零件，以及雲端數據中心伺服器機櫃機構組件。</p>
+
+                <ul class="tech-feature-list">
+                    <li class="tech-feature-item">
+                        <span class="icon">✓</span> 車用高強度鋼材精密焊接與沖壓
+                    </li>
+                    <li class="tech-feature-item">
+                        <span class="icon">✓</span> 雲端數據中心伺服器機櫃結構件
+                    </li>
+                    <li class="tech-feature-item">
+                        <span class="icon">✓</span> 全廠導入 AI 智慧化製程管理
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ESG Card -->
+            <div class="esg-card" id="esg">
+                <div>
+                    <div class="section-subtitle" style="color: #6EE7B7;">Green Energy & ESG</div>
+                    <h3>永續綠能 ‧ 氫能金屬雙極板</h3>
+                    <p>因應全球 ESG 淨零碳排趨勢，州巧積極推動智能化綠色製程，並投入金屬雙極板等燃料電池與綠能應用零組件的研發。</p>
+                </div>
+                <div>
+                    <a href="#" class="btn-white-glow">探索永續綠能布局 📄</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Footprint Section -->
+    <div class="global-section" id="global">
+        <div class="section-header" style="margin-bottom: 0;">
+            <div class="section-subtitle">Global Footprint</div>
+            <h2 class="section-title">五大全球智慧生產基地</h2>
+        </div>
+
+        <div class="global-grid">
+            <div class="global-card">
+                <div class="flag-code">HQ / TAIWAN</div>
+                <div class="plant-name">新竹湖口總部</div>
+            </div>
+            <div class="global-card">
+                <div class="flag-code">TW / PLANT</div>
+                <div class="plant-name">台南廠</div>
+            </div>
+            <div class="global-card">
+                <div class="flag-code">CN / SUZHOU</div>
+                <div class="plant-name">蘇州廠</div>
+            </div>
+            <div class="global-card">
+                <div class="flag-code">CN / XIAMEN</div>
+                <div class="plant-name">廈門廠</div>
+            </div>
+            <div class="global-card">
+                <div class="flag-code">VN / HENAN</div>
+                <div class="plant-name">越南河南廠</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clean Light Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>JOCHU</h2>
+                <p>州巧科技股份有限公司 Jochu Technology Co., Ltd.（台股代碼：3543）<br>以高階精密沖壓與 ODM 研發為核心，鏈結全球永續製造生態圈。</p>
+                <div class="footer-contact-info">
+                    📍 總公司：新竹縣湖口鄉新竹工業區光復路20號<br>
+                    📞 電話：+886-3-598-5177<br>
+                    ✉️ 投資人/發言人信箱：ir@jochu.com
+                </div>
+            </div>
+
+            <div>
+                <div class="footer-title">全球生產據點</div>
+                <ul class="footer-links">
+                    <li><a href="#">新竹湖口總部 (Taiwan)</a></li>
+                    <li><a href="#">台南廠 (Tainan)</a></li>
+                    <li><a href="#">蘇州廠 (Suzhou)</a></li>
+                    <li><a href="#">廈門廠 (Xiamen)</a></li>
+                    <li><a href="#">越南河南廠 (Henan)</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-title">快速導覽</div>
+                <ul class="footer-links">
+                    <li><a href="#about">關於州巧</a></li>
+                    <li><a href="#business">三大核心版圖</a></li>
+                    <li><a href="#nextgen">車用與伺服器布局</a></li>
+                    <li><a href="#esg">綠能燃料電池</a></li>
+                    <li><a href="#contact">投資人專區</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>Copyright © Jochu Technology Co., Ltd. All Rights Reserved. 州巧科技 版權所有</div>
+            <div>台股代碼：3543 | 隱私權政策與法律聲明</div>
+        </div>
+    </footer>
+
+</body>
+</html>
